@@ -5,4 +5,9 @@ WORKDIR "/LCV-CM"
 RUN make
 WORKDIR "/LCV-CM/src/LCV"
 EXPOSE 8080
-CMD ["python3","LCVServer.py"]
+
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+
+# CMD ["python3","LCVServer.py"]
